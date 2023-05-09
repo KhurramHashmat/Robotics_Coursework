@@ -15,11 +15,11 @@ for i in range(4):
     wheels[i].setVelocity(0.0)
 avoidObstacleCounter = 0
 while robot.step(TIME_STEP) != -1:
-    leftSpeed = 1.0
-    rightSpeed = 1.0
+    leftSpeed = 3.0
+    rightSpeed = 3.0
     if avoidObstacleCounter > 0:
         avoidObstacleCounter -= 1
-        leftSpeed = 1.0
+        leftSpeed = 3.0
         rightSpeed = -1.0
     else:  # read sensors
         for i in range(2):
@@ -29,3 +29,4 @@ while robot.step(TIME_STEP) != -1:
     wheels[1].setVelocity(rightSpeed)
     wheels[2].setVelocity(leftSpeed)
     wheels[3].setVelocity(rightSpeed)
+    
