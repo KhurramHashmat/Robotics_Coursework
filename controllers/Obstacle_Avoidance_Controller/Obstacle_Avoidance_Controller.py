@@ -1,12 +1,17 @@
-from controller import Robot
+from controller import Robot, Camera
 
 TIME_STEP = 64
 robot = Robot()
+
 ds = []
 dsNames = ['dist_sensor_left', 'dist_sensor_right']
 for i in range(2):
     ds.append(robot.getDevice(dsNames[i]))
     ds[i].enable(TIME_STEP)
+#Initialize Camera
+camera = robot.getDevice("CAM")
+camera.enable(TIME_STEP)
+camera.recognitionEnable(TIME_STEP)
 wheels = []
 wheelsNames = ['wheel0', 'wheel1', 'wheel2', 'wheel3']
 for i in range(4):
@@ -19,7 +24,7 @@ while robot.step(TIME_STEP) != -1:
     rightSpeed = 3.0
     if avoidObstacleCounter > 0:
         avoidObstacleCounter -= 1
-        leftSpeed = 3.0
+        leftSpeed = 1.0
         rightSpeed = -1.0
     else:  # read sensors
         for i in range(2):

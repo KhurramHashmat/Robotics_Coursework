@@ -8,7 +8,7 @@ orthographicViewHeight: 1
 textFiles: 0 "controllers/Obstacle_Avoidance_Controller/Obstacle_Avoidance_Controller.py"
 globalOptionalRendering: DistanceSensorRays
 consoles: Console:All:All
-renderingDevicePerspectives: NAO:CameraBottom;1;1;0;0
-renderingDevicePerspectives: NAO:CameraTop;1;1;0;0
-renderingDevicePerspectives: ROBOTIS OP2:Camera;1;1;0;0
-renderingDevicePerspectives: robot:CAM;1;1;0;0
+renderingDevicePerspectives: NAO:CameraBottom;0;1.03333;0;0
+renderingDevicePerspectives: NAO:CameraTop;1;0.781777;0.771903;0.77821
+renderingDevicePerspectives: ROBOTIS OP2:Camera;1;1;0.755287;2.38651e-07
+renderingDevicePerspectives: robot:CAM;1;0.248438;0;0
