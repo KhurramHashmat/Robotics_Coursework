@@ -1,23 +1,30 @@
 from controller import Robot, Camera
 
 TIME_STEP = 64
+
+# create the Robot instance.
 robot = Robot()
 
+# initialize distance sensors
+dsNames = ['dist_sensor_right', 'dist_sensor_left']
 ds = []
-dsNames = ['dist_sensor_left', 'dist_sensor_right']
 for i in range(2):
     ds.append(robot.getDevice(dsNames[i]))
     ds[i].enable(TIME_STEP)
-#Initialize Camera
+
+# initialize camera
 camera = robot.getDevice("CAM")
 camera.enable(TIME_STEP)
 camera.recognitionEnable(TIME_STEP)
+
+# initialize motors
 wheels = []
 wheelsNames = ['wheel0', 'wheel1', 'wheel2', 'wheel3']
 for i in range(4):
-    wheels.append(robot.getDevice(wheelsNames[i]))
+    wheels.append(robot.getMotor(wheelsNames[i]))
     wheels[i].setPosition(float('inf'))
     wheels[i].setVelocity(0.0)
+
 avoidObstacleCounter = 0
 while robot.step(TIME_STEP) != -1:
     leftSpeed = 3.0
@@ -34,4 +41,3 @@ while robot.step(TIME_STEP) != -1:
     wheels[1].setVelocity(rightSpeed)
     wheels[2].setVelocity(leftSpeed)
     wheels[3].setVelocity(rightSpeed)
-    
