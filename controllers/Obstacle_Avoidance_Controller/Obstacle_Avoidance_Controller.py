@@ -1,5 +1,6 @@
-from controller import Robot, Camera
-
+from controller import Robot
+from controller import Camera
+from controller import CameraRecognitionObject
 TIME_STEP = 64
 
 # create the Robot instance.
@@ -21,22 +22,22 @@ camera.recognitionEnable(TIME_STEP)
 wheels = []
 wheelsNames = ['wheel0', 'wheel1', 'wheel2', 'wheel3']
 for i in range(4):
-    wheels.append(robot.getMotor(wheelsNames[i]))
+    wheels.append(robot.getDevice(wheelsNames[i]))
     wheels[i].setPosition(float('inf'))
     wheels[i].setVelocity(0.0)
 
-avoidObstacleCounter = 0
+Obstacle_Counter = 0
 while robot.step(TIME_STEP) != -1:
-    leftSpeed = 3.0
-    rightSpeed = 3.0
-    if avoidObstacleCounter > 0:
-        avoidObstacleCounter -= 1
+    leftSpeed = 5.0
+    rightSpeed = 5.0
+    if Obstacle_Counter > 0:
+        Obstacle_Counter -= 1
         leftSpeed = 1.0
         rightSpeed = -1.0
     else:  # read sensors
         for i in range(2):
             if ds[i].getValue() < 950.0:
-                avoidObstacleCounter = 100
+                Obstacle_Counter = 100
     wheels[0].setVelocity(leftSpeed)
     wheels[1].setVelocity(rightSpeed)
     wheels[2].setVelocity(leftSpeed)
