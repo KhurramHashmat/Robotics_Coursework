@@ -11,4 +11,4 @@ consoles: Console:All:All
 renderingDevicePerspectives: NAO:CameraBottom;0;0.963879;0.0286458;0.727626
 renderingDevicePerspectives: NAO:CameraTop;0;1;0.407552;0.439689
 renderingDevicePerspectives: ROBOTIS OP2:Camera;0;1;0;0
-renderingDevicePerspectives: robot:CAM;1;0.370313;0;0
+renderingDevicePerspectives: robot:CAM;1;0.370313;0.522135;0.529183

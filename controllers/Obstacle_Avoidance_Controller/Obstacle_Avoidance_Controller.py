@@ -28,8 +28,8 @@ for i in range(4):
 
 Obstacle_Counter = 0
 while robot.step(TIME_STEP) != -1:
-    leftSpeed = 5.0
-    rightSpeed = 5.0
+    leftSpeed = 3.0
+    rightSpeed = 3.0
     if Obstacle_Counter > 0:
         Obstacle_Counter -= 1
         leftSpeed = 1.0
